@@ -34,7 +34,7 @@ public class GoldBachNumber {
 				}
 					
 				if(isPrime && thisIsPrime(n-j)) {
-					if(distance > j - (n-j)) {
+					if(distance > j - (n-j) && j <= (n-j)) {
 						distance = j - (n-j);
 						result.replace(0, result.length(), j + " " + (n-j) + "\n");
 					}
