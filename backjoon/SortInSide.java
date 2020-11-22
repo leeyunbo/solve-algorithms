@@ -1,5 +1,10 @@
 package algorithmPractice;
 
+/*
+* https://www.acmicpc.net/problem/1427
+* 백준 소트인사이드
+*/
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
