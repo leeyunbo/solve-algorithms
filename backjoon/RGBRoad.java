@@ -1,5 +1,10 @@
 package algorithmPractice;
 
+/*
+* https://www.acmicpc.net/problem/1149
+* 백준 RGB 거리
+*/
+
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.IOException;
