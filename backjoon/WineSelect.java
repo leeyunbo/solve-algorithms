@@ -6,40 +6,43 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 
-public class WineSelect {
-	
-	static int result = 0;
-	static int[] wine;
-	
-	
+/*
+ * https://www.acmicpc.net/problem/2156
+ * 백준 포도주 시
+ */
+
+public class WineSelect {	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+		
+		int result = 0;
+		int[] wine;
+		int[] dp;
 		int n = Integer.parseInt(br.readLine());
+		
 		wine = new int[n]; 
+		dp = new int[n];
 		for(int i=0; i<n; i++) {
 			wine[i] = Integer.parseInt(br.readLine());
 		}
 		
-		select(-1, 0, 0);
+		dp[0] = wine[0];
+		if(n >= 2) dp[1] = wine[0] + wine[1];
+		if(n >= 3) dp[2] = Math.max(wine[2] + dp[0],Math.max(wine[2] + wine[1], dp[1]));
 		
-		System.out.println(result);
-	}
-	
-	
-	
-	private static void select(int idx, int continuous, int total) {
-		if(continuous == 3) return; 
-		if(idx == wine.length-1) {
-			result = Math.max(result, total);
-			return; 
+		if(n==1) {
+			System.out.println(dp[0]);
+			return;
 		}
-	
-		for(int i=idx+1; i<wine.length; i++) {
-			if(i == idx + 1) select(i, continuous + 1, total + wine[i]);
-			else select(i, 0, total + wine[i]);
+		if(n==2) {
+			System.out.println(dp[1]);
+			return;
 		}
 		
+		for(int i=3; i<n; i++) {
+			dp[i] = Math.max(dp[i-1],Math.max(wine[i] + wine[i-1] + dp[i-3], wine[i] + dp[i-2]));
+		}
 		
+		System.out.println(dp[n-1]);
 	}
-
 }
