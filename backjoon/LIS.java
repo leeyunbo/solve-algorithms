@@ -1,41 +1,48 @@
-/*
-* https://www.acmicpc.net/problem/11053
-* 백준 가장 긴 증가하는 부분 수열 
-*/
+package algorithmPractice;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Arrays;
+import java.io.OutputStreamWriter;
 
-public class Main {
+/*
+ * https://www.acmicpc.net/problem/11053
+ * 백준 가장 긴 증가하는 부분 수열
+ * 현재 위치를 i라고 해보자. 
+ * [1...i-1] 위치의 값 중 가장 긴 증가하는 부분 수열 길이를 가진 값의 idx를 L이라고 했을 때
+ * dp[i] = dp[L] + 1 이다.
+ */
+
+public class LIS {
+
 	public static void main(String[] args) throws NumberFormatException, IOException {
+		int n,result = 1;
+		int input[], dp[];
 		
-		int N = 0;
-		int[] numbers;
-		int[] cnts;
-		
-		// input
 		BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 		
-		N = Integer.parseInt(br.readLine());
-		String[] line = br.readLine().split(" ");	
-		numbers = new int[N];
-		cnts = new int[N];
+		n = Integer.parseInt(br.readLine());
+		String[] line = br.readLine().split(" ");
 		
-		for(int i=0; i<N; i++) {
-			numbers[i] = Integer.parseInt(line[i]);
+		input = new int[n];
+		dp = new int[n];
+		for(int i=0; i<n; i++) {
+			input[i] = Integer.parseInt(line[i]);
 		}
 		
-		// main logic 
-		Arrays.fill(cnts, 1);
-		for(int i=1; i<N; i++) {
-			for(int j=0; j<i; j++) {
-				if(numbers[i] > numbers[j]) cnts[i] = Math.max(cnts[i], cnts[j] + 1);
+		dp[0] = 1;
+		for(int temp=1; temp<n; temp++) {
+			int largest = 0;
+			for(int other=temp-1; other>=0; other--) {
+				if(input[temp] > input[other]) {
+					largest = Math.max(dp[other], largest);
+				}
 			}
+			dp[temp] = largest + 1;
+			result = Math.max(dp[temp], result);
 		}
 		
-		Arrays.sort(cnts);
-		System.out.println(cnts[N-1]);
+		System.out.println(result);
 	}
 }
