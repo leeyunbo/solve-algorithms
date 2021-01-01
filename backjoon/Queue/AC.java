@@ -1,90 +1,93 @@
 package algorithmPractice;
 
-// 1. R : 현재 배열을 뒤집는다.
-// 2. D : 첫번째 값을 버린다.
-// 3. 만약 값이 없는데 D를 사용하면 error를 출력한다.
-// [1,1,2,3,5,8] [1,1,2,3,5,8]
-// 4
-//RDD
-//4
-//[1,2,3,4]
+/*
+ * https://www.acmicpc.net/problem/5430
+ * 백준 AC
+ */
 
-import java.io.BufferedWriter;
-import java.io.IOException;
-import java.io.OutputStreamWriter;
-import java.util.Scanner;
-import java.util.Stack;
+import java.io.*;
+import java.util.ArrayDeque;
 
 public class AC {
-
     public static void main(String[] args) throws IOException {
-        Scanner sc = new Scanner(System.in);
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
 
-        int testcase = sc.nextInt();
-
-        for(int test = 0; test<testcase; test++) {
-            String strFunc = sc.next();
-            int listLength = sc.nextInt();
-            String strList = sc.next();
-
-            // parser
-            Character[] strArray = new Character[listLength];
-            int i = 0;
-            for(int idx=0; idx<strList.length(); idx++) {
-                Character temp = strList.charAt(idx);
-                if(temp != '[' && temp != ']' && temp != ',')
-                    strArray[i++] = temp;
-            }
-
-            // main-logic
-            boolean isError = false;
-            for (int idx = 0; idx < strFunc.length(); idx++) {
-                char tempFunc = strFunc.charAt(idx);
-                if (tempFunc == 'R')
-                    reverse(strArray);
-                else {
-                    isError = delete(strArray);
-                    if (isError) {
-                        bw.write("error\n");
-                        break;
-                    }
-                }
-            }
-
-            if(isError) continue;
-
-            String result = "[";
-            for(int arrayIdx=0; arrayIdx<strArray.length; arrayIdx++) {
-                result += "," + strArray[arrayIdx];
-                if(arrayIdx == strArray.length -1) {
-                    result += "]";
-                }
-            }
-            bw.write(result + "\n");
+        int testCase = Integer.parseInt(br.readLine());
+        for(int i=0; i<testCase; i++) {
+            String function = br.readLine();
+            int n = Integer.parseInt(br.readLine());
+            String input = br.readLine();
+            AC_L ac = new AC_L(input, function, n);
+            bw.write(ac.play() + '\n');
         }
+
         bw.flush();
         bw.close();
     }
+}
 
-    static void reverse(Character[] strArray) {
-        Stack<Character> stack = new Stack<>();
-        for(int idx=0; idx<strArray.length; idx++) {
-            stack.push(strArray[idx]);
-        }
 
-        for(int idx=0; idx<strArray.length; idx++) {
-            strArray[idx] = stack.pop();
-        }
+class AC_L {
+
+    String[] arrInput;
+    String function;
+    String input;
+    int n;
+
+    public AC_L(String _input, String _function, int _n) {
+        input = _input;
+        function = _function;
+        n = _n;
     }
 
-    static boolean delete(Character[] strArray) {
-        if(strArray.length == 0) return true;
+    void initialized() {
+        arrInput = input.replace("[","").replace("]","").split(",");
+    }
 
-        for(int idx=strArray.length-1; idx > 0; idx--) {
-            strArray[idx-1] = strArray[idx];
+    String play() {
+        initialized();
+
+        boolean isReverse = false;
+        int left = 0, right = n-1;
+        for(int i=0; i<function.length(); i++) {
+            switch (function.charAt(i)) {
+                case 'R' :
+                    isReverse = !isReverse;
+                    break;
+                case 'D' :
+                    if(left > right) return "error";
+                    if(isReverse) right--;
+                    else left++;
+                    break;
+                default :
+                    break;
+            }
         }
 
-        return false;
+        return queue_toString(isReverse, left, right);
+    }
+
+
+    String queue_toString(boolean isReverse, int left, int right) {
+        if(left > right) return "[]";
+
+        StringBuilder result = new StringBuilder("[");
+        if(!isReverse) {
+            for(int i=left; i<=right; i++) {
+                if(i != right) result.append(arrInput[i] + ",");
+                else result.append(arrInput[i]);
+            }
+        }
+        else {
+            for(int i=right; i>=left; i--) {
+                if(i != left) result.append(arrInput[i] + ",");
+                else result.append(arrInput[i]);
+            }
+        }
+
+        result.append("]");
+
+        return result.toString();
     }
 }
