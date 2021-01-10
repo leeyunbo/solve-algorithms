@@ -1,37 +1,38 @@
 package algorithmPractice;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.util.Arrays;
+import java.util.Stack;
 
 public class RightBiggestNumber {
     public static void main(String[] args) throws IOException {
-        StringBuilder result = new StringBuilder();
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+        int n;
+        int[] numbers, results;
+        String[] line;
+        Stack<Integer> stack = new Stack<>();
 
-        int n = Integer.parseInt(br.readLine());
-        int[] numbers = new int[n];
-        String[] line = br.readLine().split(" ");
+        n = Integer.parseInt(br.readLine());
+        numbers = new int[n];
+        results = new int[n];
+        Arrays.fill(results, -1);
 
+        line = br.readLine().split(" ");
         for(int i=0; i<n; i++) {
             numbers[i] = Integer.parseInt(line[i]);
         }
 
         for(int i=0; i<n; i++) {
-            Boolean isBreak = false;
-            for(int j=i+1; j<n; j++) {
-                if(numbers[i] < numbers[j]) {
-                    result.append(numbers[j] + " ");
-                    isBreak = true;
-                    break;
-                }
+            while(!stack.isEmpty() && numbers[stack.peek()] < numbers[i]) {
+                int idx = stack.pop();
+                results[idx] = numbers[i];
             }
-            if(!isBreak) result.append(-1 + " ");
+            stack.push(i);
         }
 
-        System.out.println(result.toString());
-
-
-
+        for(int i=0; i<n; i++) bw.write(results[i] + " ");
+        bw.flush();
+        bw.close();
     }
 }
