@@ -43,7 +43,7 @@ public class NumberCard2 {
     static int lowerBound(int left, int right, int aim) {
         while(left < right) {
             int middle = (left+right)/2;
-            if(numbers[middle] >= aim) right = middle;
+            if(numbers[middle] >= aim) right = middle - 1;
             else left = middle + 1;
         }
 
@@ -54,7 +54,7 @@ public class NumberCard2 {
         while(left < right) {
             int middle = (left+right)/2;
             if(numbers[middle] <= aim) left = middle + 1;
-            else right = middle;
+            else right = middle - 1;
         }
 
         return right;
