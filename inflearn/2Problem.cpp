@@ -15,7 +15,7 @@ int main(void) {
         sum += i; 
     }
 
-    cout << b << " = " << sum; 
+    cout << b << " = " << sum + b; 
 
     return 0;
 }
