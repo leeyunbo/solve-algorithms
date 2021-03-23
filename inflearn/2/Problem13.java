@@ -39,6 +39,8 @@ public class Problem13 {
 class ReversePrimeNumberModule {
 
     boolean isPrime(int x) {
+        if(x==1) return false;
+        
         // 1. 1~ N까지 모든 수를 나눴을 떄, 1이랑 본인으로만 나뉘어지는 경우 소수이다.
         for(int i=2; i<=Math.sqrt(x); i++) {
             if(x%i==0) {
