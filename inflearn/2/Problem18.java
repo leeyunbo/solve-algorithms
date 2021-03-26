@@ -64,4 +64,24 @@ class PickRageInducingModule {
 
         return result;
     }
+    
+    int bestCountRageInducing() {
+        // 1. 배열 뒤에서부터 앞으로 전진한다.
+        // 2. 앞의 값이 뒤의 값들의 최대값보다 크면 구타 유발자인 동시에 최대값이다.
+        // 3. 위의 과정을 반복하면 구타 유발자를 모두 구할 수 있다. 
+
+
+        int result = 0;
+        int max = heights[heights.length-1];
+
+        for(int i=heights.length-2; i>=0; i--) {
+            if(max < heights[i]) {
+                result++;
+                max = heights[i];
+            }
+        }
+
+        return result;
+
+    }
 }
