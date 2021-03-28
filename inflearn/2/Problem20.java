@@ -49,11 +49,12 @@ class GameWinnerPrinter {
     }
 
     void printGameWinner() {
-        int aScore = 0, bScore = 0;
+        int aScore = 0, bScore = 0, lastWinner = 0;
 
         for(int i=0; i<A.length; i++) {
             if(A[i] > B[i]) {
                 aScore += 3;
+                lastWinner = 1;
             }
             else if(A[i] == B[i]) {
                 aScore += 1;
@@ -61,6 +62,7 @@ class GameWinnerPrinter {
             }
             else {
                 bScore += 3;
+                lastWinner = 2;
             }
         }
 
@@ -72,7 +74,15 @@ class GameWinnerPrinter {
             System.out.println("B");
         }
         else {
-            System.out.println("D");
+            if(lastWinner == 0) {
+                System.out.println("D");
+            }
+            else if(lastWinner == 1) {
+                System.out.println("A");
+            }
+            else {
+                System.out.println("B");
+            }
         }
 
 
