@@ -53,16 +53,13 @@ class JollyJumpers {
         for(int i=1; i<numbers.length; i++) {
             int temp = Math.abs(numbers[i] - numbers[i-1]);
             if(temp > numbers.length - 1) {
-                continue;
+                return false;
+            }
+            else if(checked[temp] == true){
+                return false;
             }
             else {
                 checked[temp] = true;
-            }
-        }
-
-        for(int i=1; i<numbers.length; i++) {
-            if(checked[i] == false) {
-                return false;
             }
         }
 
