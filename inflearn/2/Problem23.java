@@ -52,6 +52,7 @@ class JollyJumpers {
     boolean mainLogic() {
         for(int i=1; i<numbers.length; i++) {
             int temp = Math.abs(numbers[i] - numbers[i-1]);
+            // 무조건 N-1개의 값이 나와야하므로 하나의 값이라도 조건에서 벗어나게 되면 Jolly Jumpers가 될 수 없다
             if(temp > numbers.length - 1) {
                 return false;
             }
