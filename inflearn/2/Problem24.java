@@ -45,6 +45,21 @@ class RankingProgram {
             originScores[i] = scores[i];
         }
     }
+    
+    void bfGetRanking() {
+        Integer[] rank = new Integer[originScores.length];
+        Arrays.fill(rank, 1);
+
+        for(int i=0; i< originScores.length; i++) {
+            for(int j=0; j<originScores.length; j++) {
+                if(originScores[j] > originScores[i]) rank[i]++;
+            }
+        }
+
+        for(int i=0; i<rank.length; i++) {
+            System.out.print(rank[i] + " ");
+        }
+    }
 
     void getRanking() {
         int temp = 1, seq = 1;
