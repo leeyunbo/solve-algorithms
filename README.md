@@ -6,4 +6,5 @@
   <li> 백준 알고리즘 </li>
   <li> Programmers </li>
   <li> 알고리즘 문제 해결 전략 </li>
+  <li> 알고리즘 문제 풀이 - 인프런 </li> 
 </ol>
