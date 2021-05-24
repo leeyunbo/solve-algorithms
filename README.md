@@ -16,3 +16,4 @@
 5. [Problem49.java - 스택 활용](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem49.java)
 6. [Problem50.java - 스택 활용](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem50.java)
 7. [Problem50.java - 스택 활용](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem51.java)
+8. [Problem51.java - DFS 활용](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem54.java)
