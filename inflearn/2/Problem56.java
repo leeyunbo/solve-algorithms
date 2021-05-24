@@ -52,7 +52,6 @@ class CreateNumber {
         this.arr = arr;
     }
 
-    // sum = arr[0] or sum = 0, temp = 1
     void D(int sum, int temp) {
         if(temp == n) {
             if(sum == m) cnt++;
