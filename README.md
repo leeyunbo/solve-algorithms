@@ -28,5 +28,3 @@
 1. [Problem54.java - DFS 활용](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem54.java)
 2. [Problem55.java - DFS 활용(아마존 인터뷰)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem55.java)
 3. [Problem56.java - DFS 활용(MS 인터뷰)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem56.java)
-4. [Problem58.java - 미로 탐색(DFS)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem56.java)
-5. [Problem60.java - 최소비용그래프(인접리스트 활용)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem60.java)
