@@ -5,8 +5,8 @@
 |사이트|해결 문제 수|
 |:------:|:---:|
 |백준알고리즘|39|
-|알고리즘 문제 풀이 - 인프런|73|
-|총합|112|
+|알고리즘 문제 풀이 - 인프런|74|
+|총합|113|
 
 ### 다시 볼 문제 
 #### 결정 알고리즘 및 이분 탐색 
@@ -32,3 +32,7 @@
 #### BFS
 1. [Problem62.java - 최단 거리(BFS 활용)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem62.java)
 2. [Problem63.java - 송아지 찾기(BFS 활용)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem63.java)
+
+#### 큐
+1. [Problem64.java - 공주구하기(큐 응용)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem64.java)
+
