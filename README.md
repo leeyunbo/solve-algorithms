@@ -28,3 +28,7 @@
 1. [Problem54.java - DFS 활용](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem54.java)
 2. [Problem55.java - DFS 활용(아마존 인터뷰)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem55.java)
 3. [Problem56.java - DFS 활용(MS 인터뷰)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem56.java)
+
+#### BFS
+1. [Problem62.java - 최단 거리(BFS 활용)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem62.java)
+2. [Problem63.java - 송아지 찾기(BFS 활용)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem63.java)
