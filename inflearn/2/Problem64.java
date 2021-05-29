@@ -9,6 +9,8 @@ package inflearn;
 
  예를 들어 총 8명의 왕자가 있고, 3을 외친 왕자가 제외된다고 하자. 처음에는 3번 왕자가 3 을 외쳐 제외된다. 이어 6, 1, 5, 2, 8, 4번 왕자가 차례대로 제외되고 마지막까지 남게 된 7 번 왕자에게 공주를 구하러갑니다.
  N과 K가 주어질 때 공주를 구하러 갈 왕자의 번호를 출력하는 프로그램을 작성하시오.
+ 
+ 큐 두개 쓸 필요 없이 큐 하나로 뒤쪽에다가 넣어주면 됨.... 너무 어렵게 생각한듯!
  */
 
 import java.util.LinkedList;
@@ -48,18 +50,11 @@ class CircleGame {
 
         int cnt = 1;
         int flag = 1;
-        boolean fin = false;
         while(true) {
             if((q1.isEmpty() && q2.size() == 1) || (q1.size() == 1 && q2.isEmpty())) {
                 if(q1.size() > q2.size()) return q1.poll();
                 else return q2.poll();
             }
-
-            System.out.println("queue1" + q1.toString());
-            System.out.println("queue2" + q2.toString());
-            System.out.println(cnt);
-            System.out.println(flag);
-            System.out.println("--------------------------------");
 
             if (q1.isEmpty()) flag = 2;
             if (q2.isEmpty()) flag = 1;
