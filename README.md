@@ -5,8 +5,8 @@
 |사이트|해결 문제 수|
 |:------:|:---:|
 |백준알고리즘|39|
-|알고리즘 문제 풀이 - 인프런|77|
-|총합|115|
+|알고리즘 문제 풀이 - 인프런|78|
+|총합|116|
 
 ### 다시 볼 문제 
 #### 결정 알고리즘 및 이분 탐색 
@@ -38,3 +38,6 @@
 
 #### 우선순위 큐
 1. [Problem66.java - 최대 수입스케줄(우선순위 큐 응용)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem66.java)
+
+#### Union-Set
+1. [Problem68.java - 친구인가?(Union-Set 자료구조 활용)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem68.java)
