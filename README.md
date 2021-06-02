@@ -5,8 +5,8 @@
 |사이트|해결 문제 수|
 |:------:|:---:|
 |백준알고리즘|39|
-|알고리즘 문제 풀이 - 인프런|78|
-|총합|116|
+|알고리즘 문제 풀이 - 인프런|79|
+|총합|117|
 
 ### 다시 볼 문제 
 #### 결정 알고리즘 및 이분 탐색 
@@ -41,3 +41,4 @@
 
 #### Union-Set
 1. [Problem68.java - 친구인가?(Union-Set 자료구조 활용)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem68.java)
+2. [원더랜드(Kruskal MST 알고리즘 : Union&Find 활용)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem69.java)
