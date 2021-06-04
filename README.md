@@ -5,8 +5,8 @@
 |사이트|해결 문제 수|
 |:------:|:---:|
 |백준알고리즘|39|
-|알고리즘 문제 풀이 - 인프런|80|
-|총합|118|
+|알고리즘 문제 풀이 - 인프런|81|
+|총합|119|
 
 ### 다시 볼 문제 
 #### 결정 알고리즘 및 이분 탐색 
@@ -43,3 +43,6 @@
 1. [Problem68.java - 친구인가?(Union-Set 자료구조 활용)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem68.java)
 2. [원더랜드(Kruskal MST 알고리즘 : Union&Find 활용)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem69.java)
 3. [원더랜드(Prim MST 알고리즘 : priority_queue 활용)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem70.java)
+
+#### 다익스트라 알고리즘 
+1. [다익스트라 알고리즘](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem71.java)
