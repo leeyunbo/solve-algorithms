@@ -5,8 +5,8 @@
 |사이트|해결 문제 수|
 |:------:|:---:|
 |백준알고리즘|39|
-|알고리즘 문제 풀이 - 인프런|81|
-|총합|119|
+|알고리즘 문제 풀이 - 인프런|82|
+|총합|120|
 
 ### 다시 볼 문제 
 #### 결정 알고리즘 및 이분 탐색 
@@ -46,3 +46,6 @@
 
 #### 다익스트라 알고리즘 
 1. [다익스트라 알고리즘](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem71.java)
+
+#### 벨만포드 알고리즘 
+1. [벨만포드 알고리즘](https://github.com/leeyunbo/before_sleeping_algorithm/new/main/inflearn/2)
