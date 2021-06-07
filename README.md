@@ -48,4 +48,4 @@
 1. [다익스트라 알고리즘](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem71.java)
 
 #### 벨만포드 알고리즘 
-1. [벨만포드 알고리즘](https://github.com/leeyunbo/before_sleeping_algorithm/new/main/inflearn/2)
+1. [벨만포드 알고리즘](https://github.com/leeyunbo/before_sleeping_algorithm/new/main/inflearn/2/Problem72.java)
