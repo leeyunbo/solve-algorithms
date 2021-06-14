@@ -57,20 +57,20 @@ class PizzaDelDist {
     }
 
     void mainLogic() {
-        DFS(0);
+        DFS(0, 0);
         System.out.println(minResult);
     }
 
-    void DFS(int select) {
+    void DFS(int select, int before) {
         if(select == M) {
             minResult = Math.min(minResult, getPizzaDistance());
             return;
         }
 
-        for(int i=0; i<pizzaStores.size(); i++) {
+        for(int i=before; i<pizzaStores.size(); i++) {
             if(isCheck[i] == false) {
                 isCheck[i] = true;
-                DFS(select + 1);
+                DFS(select + 1, i);
                 isCheck[i] = false;
             }
         }
