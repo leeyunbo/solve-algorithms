@@ -25,10 +25,11 @@
 3. [Problem51.java - 스택 활용](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem51.java)
 
 #### DFS
-1. [Problem54.java - DFS 활용](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem54.java)
-2. [Problem55.java - DFS 활용(아마존 인터뷰)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem55.java)
-3. [Problem56.java - DFS 활용(MS 인터뷰)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem56.java)
-4. [Problem78.java - 피자배달거리(삼성 역량 테스트)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/3/Problem78.java)
+1. [DFS 활용](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem54.java)
+2. [DFS 활용(아마존 인터뷰)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem55.java)
+3. [DFS 활용(MS 인터뷰)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem56.java)
+4. [피자배달거리(삼성 역량 테스트)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/3/Problem78.java)
+5. [라이언 킹 심바(삼성 SW역량평가 기출 : BFS활용)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/3/Problem82.java)
 
 #### BFS
 1. [Problem62.java - 최단 거리(BFS 활용)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem62.java)
