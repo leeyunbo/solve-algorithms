@@ -14,7 +14,7 @@ package inflearn2;
  * 3) 먹을 수 있는 토끼가 2마리 이상이면, 거리가 가장 가까운 토끼를 먹으러 간다.
  *  1 거리는 심바가 있는 칸에서 먹으려고 하는 토끼가 있는 칸으로 이동할 때, 지나야하는 칸의 개수의 최소값이다.
  *  2 가장 가까운 토끼가 많으면, 그 중 가장 위쪽에 있는 토끼, 그러한 토끼가 여러 마리라 면, 가장 왼쪽에 있는 토끼를 잡아먹는다.
- *  
+ *
  *  삼바가 몇 초안에 모든 토끼들을 잡아먹을 수 있을지 구하시오.
  */
 
@@ -65,19 +65,8 @@ class SimbaGame {
                 simba.eat(rabbits.get(0), getDistance(rabbits.get(0), simba), map);
             }
             else {
-                rabbits = getCloseRabbit(rabbits);
-                if(rabbits.size() == 1) {
-                    simba.eat(rabbits.get(0), getDistance(rabbits.get(0), simba), map);
-                } else {
-                    rabbits = getHighRabbit(rabbits);
-                    if(rabbits.size() == 1) {
-                        simba.eat(rabbits.get(0), getDistance(rabbits.get(0), simba), map);
-                    }
-                    else {
-                        Rabbit rabbit = getLeftRabbit(rabbits);
-                        simba.eat(getLeftRabbit(rabbits), getDistance(rabbit, simba), map);
-                    }
-                }
+                Rabbit rabbit = getRabbit(rabbits);
+                simba.eat(rabbit, getDistance(rabbit, simba), map);
             }
         }
 
@@ -96,69 +85,35 @@ class SimbaGame {
         }
     }
 
-    Rabbit getLeftRabbit(List<Rabbit> rabbits) {
-        PriorityQueue<Rabbit> priorityQueue = new PriorityQueue<>(new Comparator<Rabbit>() {
-            @Override
-            public int compare(Rabbit o1, Rabbit o2) {
-                if(o1.y < o2.y) {
-                    return -1;
-                }
-                else if (o1.y > o2.y) {
-                    return 1;
-                }
-                else return 0;
-            }
-        });
-
-        for(Rabbit rabbit : rabbits) {
-            priorityQueue.add(rabbit);
-        }
-
-        return priorityQueue.poll();
-    }
-
-    List<Rabbit> getHighRabbit(List<Rabbit> rabbits) {
+    Rabbit getRabbit(List<Rabbit> rabbits) {
         List<Rabbit> rabbitList = new ArrayList<>();
 
         PriorityQueue<Rabbit> priorityQueue = new PriorityQueue<>(new Comparator<Rabbit>() {
             @Override
             public int compare(Rabbit o1, Rabbit o2) {
-                if(o1.x < o2.x) {
+                if(o1.distance < o2.distance) {
                     return -1;
                 }
-                else if(o1.x > o2.x) {
+                else if(o1.distance > o2.distance) {
                     return 1;
                 }
-                else return 0;
-            }
-        });
-
-        for(Rabbit rabbit : rabbits) {
-            priorityQueue.add(rabbit);
-        }
-
-        Rabbit first = priorityQueue.poll();
-        rabbitList.add(first);
-
-        for(Rabbit rabbit : priorityQueue) {
-            if(first.x != rabbit.x) {
-                break;
-            }
-            else {
-                rabbitList.add(rabbit);
-            }
-        }
-
-        return rabbitList;
-    }
-
-    List<Rabbit> getCloseRabbit(List<Rabbit> rabbits) {
-        PriorityQueue<Rabbit> priorityQueue = new PriorityQueue<>(new Comparator<Rabbit>() {
-            @Override
-            public int compare(Rabbit o1, Rabbit o2) {
-                if(o1.distance < o2.distance) return -1;
-                else if(o1.distance > o2.distance) return 1;
-                else return 0;
+                else {
+                    if(o1.x < o2.x) {
+                        return -1;
+                    }
+                    else if(o1.x > o2.x) {
+                        return 1;
+                    }
+                    else {
+                        if(o1.y < o2.y) {
+                            return -1;
+                        }
+                        else if(o1.y > o2.y) {
+                            return 1;
+                        }
+                        else return 0;
+                    }
+                }
             }
         });
 
@@ -167,21 +122,9 @@ class SimbaGame {
             priorityQueue.add(rabbit);
         }
 
-        List<Rabbit> rabbitList = new ArrayList<>();
 
-        Rabbit first = priorityQueue.poll();
-        rabbitList.add(first);
+        return priorityQueue.poll();
 
-        for(Rabbit rabbit : priorityQueue) {
-            if(first.distance != rabbit.distance) {
-                break;
-            }
-            else {
-                rabbitList.add(rabbit);
-            }
-        }
-
-        return rabbitList;
     }
 
     List<Rabbit> searchRabbit(Simba simba) {
@@ -251,13 +194,11 @@ class Simba {
 class Rabbit {
     int x;
     int y;
-    int weight;
     int distance;
 
     public Rabbit(int x, int y, int weight) {
         this.x = x;
         this.y = y;
-        this.weight = weight;
     }
 }
 
