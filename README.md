@@ -5,7 +5,7 @@
 |사이트|해결 문제 수|
 |:------:|:---:|
 |백준알고리즘|39|
-|알고리즘 문제 풀이 - 인프런|91|
+|알고리즘 문제 풀이 - 인프런|92|
 |총합|129|
 
 ### 다시 볼 문제 
@@ -15,6 +15,7 @@
 
 #### DP 
 1. [Problem47.java - DP](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem47.java)
+2. [네트워크 선 자르기(Bottom-Up DP 활용)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/3/Problem83.java)
 
 #### 투포인터 알고리즘
 1. [Problem48.java - 투포인터 알고리즘](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem48.java)
