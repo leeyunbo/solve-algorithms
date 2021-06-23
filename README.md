@@ -16,6 +16,7 @@
 #### DP 
 1. [Problem47.java - DP](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem47.java)
 2. [네트워크 선 자르기(Bottom-Up DP 활용)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/3/Problem83.java)
+3. [네트워크 선 자르기(Top-Down : 재귀, 메모이제이션)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/3/Problem84.java)
 
 #### 투포인터 알고리즘
 1. [Problem48.java - 투포인터 알고리즘](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem48.java)
