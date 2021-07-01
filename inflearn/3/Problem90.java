@@ -60,7 +60,6 @@ class AlibabaBottomUp {
                 }
             }
         }
-
         return dp[n][n];
     }
 }
