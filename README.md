@@ -5,8 +5,8 @@
 |사이트|해결 문제 수|
 |:------:|:---:|
 |백준알고리즘|39|
-|알고리즘 문제 풀이 - 인프런|98|
-|총합|137|
+|알고리즘 문제 풀이 - 인프런|99|
+|총합|138|
 
 ### 다시 볼 문제 
 #### 결정 알고리즘 및 이분 탐색 
@@ -18,6 +18,7 @@
 2. [네트워크 선 자르기(Bottom-Up DP 활용)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/3/Problem83.java)
 3. [네트워크 선 자르기(Top-Down : 재귀, 메모이제이션)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/3/Problem84.java)
 4. [최대 선 연결하기(LIS, DP)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/3/Problem88.java)
+5. [가방 문제(냅색 알고리즘, DP)](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/3/Problem92.java)
 
 #### 투포인터 알고리즘
 1. [Problem48.java - 투포인터 알고리즘](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem48.java)
