@@ -6,13 +6,14 @@
 |:------:|:---:|
 |백준알고리즘|39|
 |알고리즘 문제 풀이 - 인프런|100|
-|프로그래머스|4|
-|총합|143|
+|프로그래머스|9|
+|총합|148|
 
 ### 다시 볼 문제 
 #### 결정 알고리즘 및 이분 탐색 
 1. [Problem39.java - 결정 알고리즘 및 이분 탐색](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem39.java)
 2. [Problem40.java - 결정 알고리즘 및 이분 탐색](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem40.java)
+3. [프로그래머스 입국심사 - 이분 탐색](https://github.com/leeyunbo/before_sleeping_algorithm/tree/main/programmers/Problem9.java)
 
 #### DP 
 1. [Problem47.java - DP](https://github.com/leeyunbo/before_sleeping_algorithm/blob/main/inflearn/2/Problem47.java)
