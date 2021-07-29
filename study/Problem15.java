@@ -10,16 +10,10 @@ public class Problem15 {
     }
 
     public boolean solution(String[] phone_book) {
-        HashMap<String, Integer> phoneMap = new HashMap();
+        Arrays.sort(phone_book);
 
-        for(String phone : phone_book) {
-            phoneMap.put(phone, phoneMap.getOrDefault(phone, 0) + 1);
-        }
-
-        for(String phone : phone_book) {
-            for(int j=1; j<phone.length(); j++) {
-                if(phoneMap.containsKey(phone.substring(0, j))) return false; // O(1)
-            }
+        for(int i=0; i<phone_book.length-1; i++) {
+            if(phone_book[i+1].startsWith(phone_book[i])) return false;
         }
 
         return true;
