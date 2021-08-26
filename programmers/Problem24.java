@@ -12,6 +12,9 @@ public class Problem24 {
     }
 
     public String solution(String sentence) {
+        for(int i=0; i<sentence.length(); i++) {
+            if(sentence.charAt(i) == ' ') return "invalid";
+        }
         return dfs("", sentence).trim();
     }
 
@@ -30,6 +33,10 @@ public class Problem24 {
             String next = part.substring(1, rightIdx);
             if(isOneCondition(next)) {
                 return dfs(answer + createCorrectSentence(next) + " ", part.substring(rightIdx+1));
+            }
+            else {
+                if(isSmall(part.charAt(1))) return "invalid";
+                return dfs(answer, part.substring(1, rightIdx) + part.substring(rightIdx+1));
             }
         }
         else {
