@@ -9,53 +9,63 @@ import java.util.*;
 public class Problem26 {
     public static void main(String[] args) {
         Problem26 problem26 = new Problem26();
-        System.out.println(problem26.solution(5, new int[][] {{4, 3}, {4, 2}, {3, 2}, {1, 2}, {2, 5}}));
+        System.out.println(problem26.solution(5, new int[][]{{4, 3}, {4, 2}, {3, 2}, {1, 2}, {2, 5}}));
     }
 
     public int solution(int n, int[][] results) {
+        int answer = 0;
         ArrayList<LinkedList<Integer>> adjList = new ArrayList<>();
-        for(int i=0; i<=n; i++) adjList.add(new LinkedList<>());
-        for(int[] result : results) adjList.get(result[0]).add(result[1]);
-
-        int[] defeat = new int[n+1];
+        for (int i = 0; i <= n; i++) adjList.add(new LinkedList<>());
+        for (int[] result : results) adjList.get(result[0]).add(result[1]);
 
         for(int i=1; i<=n; i++) {
-            bfs(i, defeat, adjList);
-        }
+            int temp = cntReachableNode(i, adjList) + cntCanReachableNode(i, adjList);
+            if(temp == n-1) answer += 1;
+\        }
 
-        return cntConfirmed(defeat, n);
+        return answer;
     }
 
-    private void bfs(int first, int[] defeat, ArrayList<LinkedList<Integer>> adjList) {
+    private int cntReachableNode(int node, ArrayList<LinkedList<Integer>> adjList) {
+        int cnt = 0;
+        for(int i=1; i<adjList.size(); i++) {
+            Queue<Integer> queue = new LinkedList<>();
+            queue.add(i);
+            boolean finish = false;
+            while(!queue.isEmpty()) {
+                int start = queue.poll();
+                for(int end : adjList.get(start)) {
+                    if(end == node) {
+                        cnt++;
+                        finish = true;
+                        break;
+                    }
+                    queue.add(end);
+                }
+                if(finish) break;
+            }
+        }
+
+        return cnt;
+    }
+
+    private int cntCanReachableNode(int node, ArrayList<LinkedList<Integer>> adjList) {
+        int cnt = 0;
+        boolean[] check = new boolean[adjList.size()];
         Queue<Integer> queue = new LinkedList<>();
-        queue.add(first);
+        queue.add(node);
         while(!queue.isEmpty()) {
             int start = queue.poll();
             for(int end : adjList.get(start)) {
-                queue.add(end);
-                defeat[end] += 1;
+                if(!check[end]) {
+                    queue.add(end);
+                    check[end] = true;
+                    cnt++;
+                }
             }
-        }
-    }
-
-    private int cntConfirmed(int[] defeat, int n) {
-        int cnt = 0;
-
-        int[] defeatCnt = new int[n+1];
-        for(int i=0; i<=n; i++) defeatCnt[defeat[i]]++;
-
-        for(int i=0; i<=n; i++) {
-            if(defeatCnt[i] == 1) cnt++;
-            else break;
-        }
-
-        if(cnt == n) return cnt;
-
-        for(int i=n; i>=0; i--) {
-            if(defeatCnt[i] == 1) cnt++;
-            else break;
         }
 
         return cnt;
     }
 }
+
