@@ -4,8 +4,6 @@ https://programmers.co.kr/learn/courses/30/lessons/49191
 
 package programmers;
 
-import java.util.*;
-
 public class Problem26 {
     public static void main(String[] args) {
         Problem26 problem26 = new Problem26();
@@ -14,58 +12,41 @@ public class Problem26 {
 
     public int solution(int n, int[][] results) {
         int answer = 0;
-        ArrayList<LinkedList<Integer>> adjList = new ArrayList<>();
-        for (int i = 0; i <= n; i++) adjList.add(new LinkedList<>());
-        for (int[] result : results) adjList.get(result[0]).add(result[1]);
+        int[][] adjArray = new int[n+1][n+1];
+        int[][] answers = new int[n+1][n+1];
+
+        for (int[] result : results) adjArray[result[0]][result[1]] = 1;
+
+        for(int m=1; m<=n; m++) {
+            for(int i=1; i<=n; i++) {
+                for(int j=1; j<=n; j++) {
+                    adjArray[i][j] = (adjArray[i][m] != 0 && adjArray[m][j] != 0 ? 1 : adjArray[i][j]);
+                }
+            }
+        }
 
         for(int i=1; i<=n; i++) {
-            int temp = cntReachableNode(i, adjList) + cntCanReachableNode(i, adjList);
-            if(temp == n-1) answer += 1;
-\        }
+            if(findCanReachNode(i, adjArray) + findReachableNode(i, adjArray) == n-1) answer++;
+        }
 
         return answer;
     }
 
-    private int cntReachableNode(int node, ArrayList<LinkedList<Integer>> adjList) {
+    private int findReachableNode(int node, int[][] adjArray) {
         int cnt = 0;
-        for(int i=1; i<adjList.size(); i++) {
-            Queue<Integer> queue = new LinkedList<>();
-            queue.add(i);
-            boolean finish = false;
-            while(!queue.isEmpty()) {
-                int start = queue.poll();
-                for(int end : adjList.get(start)) {
-                    if(end == node) {
-                        cnt++;
-                        finish = true;
-                        break;
-                    }
-                    queue.add(end);
-                }
-                if(finish) break;
-            }
+        for(int i=0; i < adjArray.length; i++) {
+            cnt += adjArray[node][i];
         }
-
         return cnt;
     }
 
-    private int cntCanReachableNode(int node, ArrayList<LinkedList<Integer>> adjList) {
+    private int findCanReachNode(int node, int[][] adjArray) {
         int cnt = 0;
-        boolean[] check = new boolean[adjList.size()];
-        Queue<Integer> queue = new LinkedList<>();
-        queue.add(node);
-        while(!queue.isEmpty()) {
-            int start = queue.poll();
-            for(int end : adjList.get(start)) {
-                if(!check[end]) {
-                    queue.add(end);
-                    check[end] = true;
-                    cnt++;
-                }
-            }
+        for(int i=0; i < adjArray.length; i++) {
+            cnt += adjArray[i][node];
         }
-
         return cnt;
     }
 }
+
 
