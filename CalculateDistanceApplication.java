@@ -12,8 +12,8 @@ import java.util.Scanner;
 public class CalculateDistanceApplication {
 
     private static final String requestURL = "https://naveropenapi.apigw.ntruss.com/map-geocode/v2/geocode";
-    private static final String CLIENT_ID = "xmk4kcvlm3";
-    private static final String CLIENT_SECRET = "IjZH88NTxTmZGHYxSyXOvyvBgDq3LX9j6eoLhqSl";
+    private static final String CLIENT_ID = "##";
+    private static final String CLIENT_SECRET = "##";
 
 
     public static void main(String[] args) throws IOException {
