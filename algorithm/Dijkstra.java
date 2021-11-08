@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.PriorityQueue;
 
@@ -13,8 +14,8 @@ public class Dijkstra {
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         int count = Integer.parseInt(br.readLine());
-        adjArray = new int[count+1][count+1];
-        distance = new int[count+1];
+        adjArray = new int[7][7];
+        distance = new int[7];
         for(int i=0; i<count; i++) {
             String[] arr = br.readLine().split(" ");
             int u = Integer.parseInt(arr[0]);
@@ -32,23 +33,20 @@ public class Dijkstra {
 
     private void dijkstra(int start) {
         boolean[] check = new boolean[adjArray.length+1];
-        PriorityQueue<Integer> queue = new PriorityQueue<>();
+        PriorityQueue<int[]> queue = new PriorityQueue<>(Comparator.comparingInt(o -> o[1]));
 
-        for(int i=1; i<distance.length; i++) {
-            distance[i] = adjArray[start][i];
-        }
+        Arrays.fill(distance, Integer.MAX_VALUE);
+        distance[start] = 0;
 
-        queue.add(start);
+        queue.add(new int[]{start, 0});
         while(!queue.isEmpty()) {
-            int u = queue.poll();
-            check[u] = true;
-            LinkedList<Integer> connectedNodes = findConnectedNode(u);
-            System.out.println("connectedNodes = " + connectedNodes);
-            for(int node : connectedNodes) {
-                if(!check[node]) {
-                    distance[node] = Math.min(distance[node], distance[u] + adjArray[u][node]);
-                    System.out.println("node = " + node);
-                    queue.add(node);
+            int[] u = queue.poll();
+            if(distance[u[0]] < u[1]) continue;;
+            LinkedList<Integer> connectedNodes = findConnectedNode(u[0]);
+            for(int v : connectedNodes) {
+                if(distance[v] > distance[u[0]] + adjArray[u[0]][v]) {
+                    distance[v] =  distance[u[0]] + adjArray[u[0]][v];
+                    queue.add(new int[]{v, distance[v]});
                 }
             }
         }
