@@ -1,4 +1,4 @@
-package junior.programmers;
+package programmers;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -32,11 +32,11 @@ public class Problem37 {
             String[] commandLine = operation.split(" ");
             int data = Integer.parseInt(commandLine[1]);
             switch (commandLine[0]) {
-                case "I" -> {
+                case "I": {
                     priorityQueue.offer(data);
                     reversePriorityQueue.offer(data);
                 }
-                case "D" -> {
+                case "D": {
                     if (priorityQueue.isEmpty()) continue;
                     if (data == 1) {
                         int removeData = reversePriorityQueue.poll();

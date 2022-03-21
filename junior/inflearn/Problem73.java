@@ -1,4 +1,4 @@
-package junior.inflearn;
+package inflearn;
 
 /**
  * 벨만 포드 알고리즘
